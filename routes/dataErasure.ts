@@ -94,4 +94,3 @@ router.post('/', async (req: Request<Record<string, unknown>, Record<string, unk
 })
 
 export default router
-
