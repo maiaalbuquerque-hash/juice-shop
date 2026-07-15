@@ -1,0 +1,10 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-LODASH-450202:
+    - sanitize-html@1.4.2 > lodash@2.4.2:
+        reason: Accepted by engineering — upgrade breaks functionality
+        expires: 2026-10-01T00:00:00.000Z
+        created: 2026-07-15T19:54:28.324Z
+patch: {}
