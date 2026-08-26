@@ -18,13 +18,13 @@ steps:
     env:
       SNYK_TOKEN: $(SNYK_TOKEN)
 
-  - script: docker build -t juice-shop:latest .
-    displayName: 'Build Docker image'
+  - script: docker pull bkimminich/juice-shop:latest
+    displayName: 'Pull Juice Shop image'
 
-  - script: snyk container test juice-shop:latest --exclude-base-image-vulns --severity-threshold=high --org=dad5720b-dd1d-4159-85f7-d7c58fe11563
+  - script: snyk container test bkimminich/juice-shop:latest --exclude-base-image-vulns --severity-threshold=high --org=dad5720b-dd1d-4159-85f7-d7c58fe11563
     displayName: 'Run Snyk Container Test'
     continueOnError: true
 
-  - script: snyk container monitor juice-shop:latest --org=dad5720b-dd1d-4159-85f7-d7c58fe11563
+  - script: snyk container monitor bkimminich/juice-shop:latest --org=dad5720b-dd1d-4159-85f7-d7c58fe11563
     displayName: 'Send Container Snapshot to Snyk (Monitor)'
     continueOnError: true
